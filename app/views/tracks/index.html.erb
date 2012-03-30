@@ -1,0 +1,18 @@
+<h2>收支記錄</h2>
+
+<table>
+  <tr>
+    <th>價格</th>
+    <th>明細</th>
+    <th></th>
+  </tr>
+<% @tracks.each do |track| %>
+  <tr>
+    <td><%= track.price %></td>
+    <td><%= track.description %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '建立新記錄', new_track_path %>

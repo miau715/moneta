@@ -1,0 +1,2 @@
+module MoniesHelper
+end

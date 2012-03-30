@@ -1,0 +1,6 @@
+<h1>加入新收支記錄</h1>
+<%= form_for @track do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit "新增" %>
+<% end %>
+<%= link_to '不想加了', tracks_path %>
