@@ -5,12 +5,14 @@
     <th>價格</th>
     <th>明細</th>
     <th></th>
+    <th></th>
   </tr>
 <% @tracks.each do |track| %>
   <tr>
     <td><%= track.price %></td>
     <td><%= track.description %></td>
-    <td></td>
+    <td><%= link_to "編輯", edit_track_path(track) %></td>
+    <td><%= link_to "刪除", track_path(track), method: :delete, :confirm => "請確定是否刪除" %></td>
   </tr>
 <% end %>
 </table>
