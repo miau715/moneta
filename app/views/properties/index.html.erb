@@ -1,0 +1,16 @@
+<h2>資產列表</h2>
+
+<table>
+  <tr>
+    <th>項目</th>
+    <th>金額</th>
+  </tr>
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.name %></td>
+    <td><%= property.value %></td>
+  </tr>
+<% end %>
+</table>
+
+<%#= link_to '建立新項目', new_property_path %>
