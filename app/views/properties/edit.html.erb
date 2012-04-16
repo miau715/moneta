@@ -1,0 +1,6 @@
+<h1>修改資產項目</h1>
+<%= form_for @property do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit "修改" %>
+<% end %>
+<%= link_to '不想改了', properties_path %>

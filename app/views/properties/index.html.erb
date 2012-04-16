@@ -4,13 +4,18 @@
   <tr>
     <th>項目</th>
     <th>金額</th>
+    <th></th>
+    <th></th>
   </tr>
 <% @properties.each do |property| %>
   <tr>
     <td><%= property.name %></td>
     <td><%= property.value %></td>
+    <td><%= link_to "編輯", edit_property_path(property) %></td>
+    <td><%= link_to "刪除", property_path(property), method: :delete, :confirm => "請確定是否刪除" %></td>
   </tr>
 <% end %>
 </table>
 
-<%#= link_to '建立新項目', new_property_path %>
+<%= link_to '建立新項目', new_property_path %><br />
+<%= link_to '移動到記帳頁面', tracks_path %>
