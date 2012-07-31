@@ -1,0 +1,11 @@
+<h2>帳戶列表</h2>
+
+<% if @accounts.length > 0 %>
+<ul>
+  <% @accounts.each do |account| %>
+  <li><%= account.name %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= link_to '設定新帳戶', new_account_path %>

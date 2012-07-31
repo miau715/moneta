@@ -9,7 +9,7 @@
   </tr>
 <% @tracks.each do |track| %>
   <tr>
-    <td><%= track.price %></td>
+    <td><%= number_to_currency(track.price, :locale => :tw, :precision => 0) %></td>
     <td><%= track.description %></td>
     <td><%= link_to "編輯", edit_track_path(track) %></td>
     <td><%= link_to "刪除", track_path(track), method: :delete, :confirm => "請確定是否刪除" %></td>

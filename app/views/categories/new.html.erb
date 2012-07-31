@@ -1,0 +1,6 @@
+<h1>加入新分類</h1>
+<%= form_for @category do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit "新增" %>
+<% end %>
+<%= link_to '不想加了', categories_path %>

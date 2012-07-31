@@ -1,0 +1,20 @@
+<h2>分類列表</h2>
+
+<h3>支出分類</h3>
+<% if @outcome_categories.length > 0 %>
+<ul>
+  <% @outcome_categories.each do |category| %>
+  <li><%= category.name %></li>
+  <% end %>
+</ul>
+<% end %>
+<h3>收入分類</h3>
+<% if @income_categories.length > 0 %>
+<ul>
+  <% @income_categories.each do |category| %>
+  <li><%= category.name %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= link_to '建立新分類', new_category_path %>

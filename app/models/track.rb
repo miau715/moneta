@@ -1,3 +1,4 @@
 class Track < ActiveRecord::Base
-  has_one :category
+  belongs_to :account
+  belongs_to :category
 end
