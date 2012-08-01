@@ -30,6 +30,9 @@ GEM
       activesupport (= 3.1.0)
     activesupport (3.1.0)
       multi_json (~> 1.0)
+    anjlab-bootstrap-rails (2.0.4.3)
+      railties (>= 3.0)
+      sass
     ansi (1.4.2)
     arel (2.2.3)
     bcrypt-ruby (3.0.1)
@@ -111,6 +114,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails (>= 2.0)
   coffee-rails (~> 3.1.0)
   jquery-rails
   rails (= 3.1.0)

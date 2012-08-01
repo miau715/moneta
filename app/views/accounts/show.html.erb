@@ -10,7 +10,7 @@
   </tr>
 <% @tracks.each do |track| %>
   <tr>
-    <td><%= track.category.name %></td>
+    <td><%= track.category.name if (track.category_id) %></td>
     <td><%= number_to_currency(track.price, :locale => :tw, :precision => 0) %></td>
     <td><%= track.description %></td>
     <td><%= link_to "編輯", edit_account_track_path(@account,track) %></td>
