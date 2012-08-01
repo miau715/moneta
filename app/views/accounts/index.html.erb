@@ -3,7 +3,7 @@
 <% if @accounts.length > 0 %>
 <ul>
   <% @accounts.each do |account| %>
-  <li><%= account.name %></li>
+  <li><%= link_to account.name, account_path(account) %></li>
   <% end %>
 </ul>
 <% end %>

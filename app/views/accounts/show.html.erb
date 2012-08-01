@@ -1,0 +1,22 @@
+<h2><%= @account.name %></h2>
+
+<table>
+  <tr>
+    <th>分類</th>
+    <th>價格</th>
+    <th>明細</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @tracks.each do |track| %>
+  <tr>
+    <td><%= track.category.name %></td>
+    <td><%= number_to_currency(track.price, :locale => :tw, :precision => 0) %></td>
+    <td><%= track.description %></td>
+    <td><%= link_to "編輯", edit_account_track_path(@account,track) %></td>
+    <td><%= link_to "刪除", account_track_path(@account,track), method: :delete, :confirm => "請確定是否刪除" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '建立新記錄', new_account_track_path(@account) %>

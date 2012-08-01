@@ -1,5 +1,8 @@
 <h2>分類列表</h2>
 
+<div id="add_category">
+
+</div>
 <h3>支出分類</h3>
 <% if @outcome_categories.length > 0 %>
 <ul>
@@ -18,3 +21,9 @@
 <% end %>
 
 <%= link_to '建立新分類', new_category_path %>
+
+<% content_for :js do %>
+    $(document).ready(function() {        
+      $('#add_category').load('/categories/new');
+    });
+<% end %>

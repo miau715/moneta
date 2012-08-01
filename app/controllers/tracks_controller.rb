@@ -1,29 +1,39 @@
 class TracksController < ApplicationController
   def index
-    @tracks = Track.all
+    @account = Account.find(params[:account_id])
+    redirect_to account_path(@account)
   end
   def show
-    @track = Track.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @track = @account.tracks.find(params[:id])
   end
   def new
-    @track = Track.new
+    @account = Account.find(params[:account_id])
+    @track = @account.tracks.build
+    @outcome_categories = Category.outcome
+    @income_categories = Category.income
   end
   def create
-    @track = Track.create(params[:track])
-    
-    redirect_to tracks_path
+    @account = Account.find(params[:account_id])
+    @track = @account.tracks.build(params[:track])
+    if @track.save
+      redirect_to account_path(@account)
+    end
   end
   def edit
-    @track = Track.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @track = @account.tracks.find(params[:id])
   end
   def update
-    @track = Track.find(params[:id])
-    @track.update_attributes(params[:track])
-    
-    redirect_to tracks_path
+    @account = Account.find(params[:account_id])
+    @track = @account.track.find(params[:id])
+    if @track.update_attributes(params[:track])
+      redirect_to tracks_path
+    end
   end
   def destroy
-    @track = Track.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @track = @account.track.find(params[:id])
     @track.destroy
     
     redirect_to tracks_path

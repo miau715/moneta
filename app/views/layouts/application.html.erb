@@ -15,6 +15,9 @@
   <p class="error"><%= flash[:error] %></p>
 <% end %>
 <%= yield %>
+<script>
+<%= yield :js %>
+</script>
 </div>
 </body>
 </html>

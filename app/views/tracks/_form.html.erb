@@ -1,6 +1,16 @@
+<input type="radio" name="type" value="outcome" class="type"> 支出
+<input type="radio" name="type" value="income" class="type"> 收入
+<br />
+<%= f.select(:category_id, options_from_collection_for_select(@outcome_categories, :id, :name)) %>
+<br />
 <%= f.label :price, "價格：" %>
 <%= f.number_field :price %>
 <br />
 <%= f.label :description, "交易明細：" %>
-<%= f.text_area :description %>
+<%= f.text_field :description %>
 <br />
+
+<% content_for :js do %>
+  
+
+<% end %>

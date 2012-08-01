@@ -24,8 +24,9 @@ Moneta::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :accounts
-  resources :tracks
+  resources :accounts do
+    resources :tracks
+  end
   resources :categories
 
   # Sample resource route with sub-resources:
@@ -52,7 +53,7 @@ Moneta::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root :to => 'tracks#index'
+  root :to => 'accounts#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

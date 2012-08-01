@@ -7,5 +7,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-money = Money.new(:stock_type => "現金", :count => 0)
-money.save!
+account = Account.new(:name => "現金", :count => 0)
+account.save!
