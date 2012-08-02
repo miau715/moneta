@@ -26,16 +26,16 @@ class TracksController < ApplicationController
   end
   def update
     @account = Account.find(params[:account_id])
-    @track = @account.track.find(params[:id])
+    @track = @account.tracks.find(params[:id])
     if @track.update_attributes(params[:track])
       redirect_to tracks_path
     end
   end
   def destroy
     @account = Account.find(params[:account_id])
-    @track = @account.track.find(params[:id])
-    @track.destroy
-    
-    redirect_to tracks_path
+    @track = @account.tracks.find(params[:id])
+    if @track.destroy 
+      redirect_to account_path(@account)
+    end
   end
 end

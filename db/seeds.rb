@@ -7,5 +7,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-account = Account.new(:name => "現金", :count => 0)
-account.save!
+Account.create(:name => "現金", :money => 0)
+
+Category.create(:name => "伙食費", :exchange_type => "outcome")
+Category.create(:name => "交通費", :exchange_type => "outcome")
+Category.create(:name => "薪水", :exchange_type => "income")

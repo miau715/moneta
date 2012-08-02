@@ -1,7 +1,7 @@
 class CreateTracks < ActiveRecord::Migration
   def change
     create_table :tracks do |t|
-      t.decimal :price
+      t.integer :price
       t.string :description
       t.string :note
       t.integer :category_id

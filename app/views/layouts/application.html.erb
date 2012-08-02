@@ -7,7 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="container-fluid">
+        <a class="brand" href="/">Moneta</a>
+        <div class="nav-collapse">
+          <ul class="nav pull-right">
+            <li><a href="#">報帳頁面</a></li>
+            <li><%= link_to '設定', categories_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
+<div class="row">
+<div class="span3">
+  <%= yield :side %>
+</div>
+<div class="span9">
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
@@ -15,6 +35,8 @@
   <p class="error"><%= flash[:error] %></p>
 <% end %>
 <%= yield %>
+</div>
+</div>
 <script>
 <%= yield :js %>
 </script>

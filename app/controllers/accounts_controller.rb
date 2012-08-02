@@ -5,6 +5,7 @@ def index
 end
 
 def show
+  @accounts = Account.all
   @account = Account.find(params[:id])
   @tracks = @account.tracks
 end
