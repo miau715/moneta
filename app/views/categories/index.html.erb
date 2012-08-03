@@ -20,10 +20,10 @@
 </ul>
 <% end %>
 
-<%= link_to '建立新分類', new_category_path %>
+<%#= link_to '建立新分類', new_category_path %>
 
 <% content_for :js do %>
     $(document).ready(function() {        
-      $('#add_category').load('/categories/new');
+      $('#add_category').load('<%= new_category_path %>');
     });
 <% end %>

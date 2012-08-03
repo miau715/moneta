@@ -33,6 +33,6 @@
 
 <% content_for :js do %>
     $(document).ready(function() {        
-      $('#add_track').load('/accounts/<%= @account.id %>/tracks/new');
+      $('#add_track').load('<%= new_account_track_path(@account) %>');
     });
 <% end %>

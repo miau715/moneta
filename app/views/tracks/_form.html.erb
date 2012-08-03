@@ -1,8 +1,10 @@
 <input type="radio" name="type" value="outcome" class="type"> 支出
-<input type="radio" name="type" value="income" class="type"> 收入
+<input type="radio" name="type" value="income" class="type"> 收入 
 <br />
-<%= f.select(:category_id, options_from_collection_for_select(@outcome_categories, :id, :name), {}, {:class => 'category_id outcome'}) %>
-<%= f.select(:category_id, options_from_collection_for_select(@income_categories, :id, :name), {}, {:class => 'category_id income'}) %>
+<div id="category_select">
+  
+</div>
+<%= f.select :category_id, '' %>
 <br />
 <%= f.label :price, "價格：" %>
 <%= f.number_field :price %>
@@ -13,15 +15,17 @@
 
 <% content_for :js do %>
 $(document).ready(function() { 
-  $('select.category_id').hide();
+  $('#track_category_id').hide();
   $('input.type').click(function() {
-    $('select.category_id').hide();
-    if($(this).val()=='outcome') {
-      $('select.outcome').show();
+    $('#track_category_id').hide();
+    $('#track_category_id').html('');
+    if ($(this).val()=='outcome') {
+      $('#track_category_id').append("<%= escape_javascript(options_from_collection_for_select(@outcome_categories, :id, :name)) %>");
     }
     else {
-      $('select.income').show();
+      $('#track_category_id').append("<%= escape_javascript(options_from_collection_for_select(@income_categories, :id, :name)) %>");
     }
+    $('#track_category_id').show();
   });
 });
 <% end %>
