@@ -1,14 +1,15 @@
 <% content_for :side do %>
 <ul>
   <% @accounts.each do |account| %>
-  <li><%= account.name %></li>
+  <li><%= link_to account.name, account_path(account) %></li>
   <% end %>
 </ul>
 <% end %>
 
 <h2><%= @account.name %></h2>
-
-<div id="add_track">
+<div class="well">
+  <div id="add_track">
+  </div>
 </div>
 <table class="table">
   <tr>
@@ -29,7 +30,6 @@
 <% end %>
 </table>
 
-<%#= link_to '建立新記錄', new_account_track_path(@account) %>
 
 <% content_for :js do %>
     $(document).ready(function() {        
