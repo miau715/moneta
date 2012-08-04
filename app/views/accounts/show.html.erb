@@ -13,6 +13,7 @@
 </div>
 <table class="table">
   <tr>
+    <th>日期</th>
     <th>分類</th>
     <th>價格</th>
     <th>明細</th>
@@ -21,6 +22,7 @@
   </tr>
 <% @tracks.each do |track| %>
   <tr>
+    <td><%= track.exchange_date %></td>
     <td><%= track.category.name if (track.category_id) %></td>
     <td><%= number_to_currency(track.price, :locale => :tw, :precision => 0) %></td>
     <td><%= track.description %></td>

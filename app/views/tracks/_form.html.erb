@@ -1,3 +1,5 @@
+<%= f.datepicker :exchange_date %>
+<br />
 <% if @track.category.try(:exchange_type) %>
   <input type="radio" name="type" value="outcome" class="type" <%= 'checked' if (@track.category.exchange_type=='outcome') %>> 支出
   <input type="radio" name="type" value="income" class="type" <%= 'checked' if (@track.category.exchange_type=='income') %>> 收入 
