@@ -5,7 +5,7 @@ class CreateTracks < ActiveRecord::Migration
       t.string :description
       t.string :note
       t.integer :category_id
-      t.date :date
+      t.date :exchange_date
       
       t.timestamps
     end

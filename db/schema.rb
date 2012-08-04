@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120801152046) do
     t.string   "description"
     t.string   "note"
     t.integer  "category_id"
-    t.date     "date"
+    t.date     "exchange_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"

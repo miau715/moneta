@@ -8,7 +8,7 @@
 
 <h2><%= @account.name %></h2>
 <div class="well">
-  <div id="add_track">
+  <div id="track_form">
   </div>
 </div>
 <table class="table">
@@ -24,7 +24,7 @@
     <td><%= track.category.name if (track.category_id) %></td>
     <td><%= number_to_currency(track.price, :locale => :tw, :precision => 0) %></td>
     <td><%= track.description %></td>
-    <td><%= link_to "編輯", edit_account_track_path(@account,track) %></td>
+    <td><%= link_to "編輯", edit_account_track_path(@account,track), :class => 'edit_track' %></td>
     <td><%= link_to "刪除", account_track_path(@account,track), method: :delete, :confirm => "請確定是否刪除" %></td>
   </tr>
 <% end %>
@@ -32,7 +32,11 @@
 
 
 <% content_for :js do %>
-    $(document).ready(function() {        
-      $('#add_track').load('<%= new_account_track_path(@account) %>');
-    });
+$(function() {        
+  $('#track_form').load('<%= new_account_track_path(@account) %>');
+  $('.edit_track').click( function(){
+    $('#track_form').load( $(this).attr("href") );
+    return false;
+  });
+});
 <% end %>
