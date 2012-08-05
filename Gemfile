@@ -16,6 +16,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem "will_paginate"
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'

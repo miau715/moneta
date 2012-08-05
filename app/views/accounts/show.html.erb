@@ -4,9 +4,10 @@
   <li><%= link_to account.name, account_path(account) %></li>
   <% end %>
 </ul>
+<%= link_to '新增帳戶', new_account_path %>
 <% end %>
 
-<h2><%= @account.name %></h2>
+<h2><%= @account.name %> (<%= link_to '編輯', edit_account_path(@account) %>)</h2>
 <div class="well">
   <div id="track_form">
   </div>
@@ -31,7 +32,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate(@tracks)%>
 
 <% content_for :js do %>
 $(function() {        
