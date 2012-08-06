@@ -1,5 +1,5 @@
 <h3>加入新收支記錄</h3>
-<%= form_for [@account, @track] do |f| %>
+<%= form_for [@account, @track], :html => {:class => 'form-inline'} do |f|  %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= f.submit "新增" %>
 <% end %>

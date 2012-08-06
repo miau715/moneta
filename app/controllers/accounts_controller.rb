@@ -7,7 +7,7 @@ end
 def show
   @accounts = Account.all
   @account = Account.find(params[:id])
-  @tracks = @account.tracks.paginate(:page => params[:page], :per_page => 20 )
+  @tracks = @account.tracks.order_by_date.paginate(:page => params[:page], :per_page => 20 )
 end
 
 def new

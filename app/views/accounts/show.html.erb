@@ -5,6 +5,10 @@
   <% end %>
 </ul>
 <%= link_to '新增帳戶', new_account_path %>
+
+<div class="well">
+
+</div>
 <% end %>
 
 <h2><%= @account.name %> (<%= link_to '編輯', edit_account_path(@account) %>)</h2>
@@ -35,7 +39,7 @@
 <%= will_paginate(@tracks)%>
 
 <% content_for :js do %>
-$(function() {        
+$(function() {
   $('#track_form').load('<%= new_account_track_path(@account) %>');
   $('.edit_track').click( function(){
     $('#track_form').load( $(this).attr("href") );

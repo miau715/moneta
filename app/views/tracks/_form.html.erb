@@ -1,5 +1,4 @@
-<%= f.datepicker :exchange_date %>
-<br />
+<%= f.datepicker :exchange_date, :dateFormat => "yy-mm-dd" %>
 <% if @track.category.try(:exchange_type) %>
   <input type="radio" name="type" value="outcome" class="type" <%= 'checked' if (@track.category.exchange_type=='outcome') %>> 支出
   <input type="radio" name="type" value="income" class="type" <%= 'checked' if (@track.category.exchange_type=='income') %>> 收入 
@@ -18,12 +17,10 @@
 <% end %>
 
 <br />
-<%= f.label :price, "價格：" %>
-<%= f.number_field :price %>
-<br />
-<%= f.label :description, "交易明細：" %>
-<%= f.text_field :description %>
-<br />
+<%= f.label :price, "價格：", :class => 'inline' %>
+<%= f.number_field :price, :class => 'inline' %>
+<%= f.label :description, "交易明細：", :class => 'inline' %>
+<%= f.text_field :description, :class => 'inline' %>
 
 <% content_for :js do %>
 $(function() { 

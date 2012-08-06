@@ -1,5 +1,5 @@
 <h3>編輯記錄</h3>
-<%= form_for [@account, @track] do |f| %>
+<%= form_for [@account, @track], :html => {:class => 'form-inline'} do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= f.submit "修改" %>
 <% end %>
