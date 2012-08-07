@@ -7,7 +7,15 @@
 <%= link_to '新增帳戶', new_account_path %>
 
 <div class="well">
+<%= form_tag url_for(action: 'show', controller: 'accounts'), :method => "get" do %>
+  <%= text_field_tag 'start_date', nil, :class => 'datepicker' %>
+  <%= text_field_tag 'end_date', nil, :class => 'datepicker' %>
+  <%= hidden_field_tag "id", @account.id %>
+  <%= submit_tag '篩選' %>
+<% end %>
 
+<%= @start_date %>
+<%= @end_date %>
 </div>
 <% end %>
 
@@ -40,6 +48,9 @@
 
 <% content_for :js do %>
 $(function() {
+  $(".datepicker").datepicker({altFormat:"yy-mm-dd"});
+  /*$(".datepicker").datepicker();
+  $(".datepicker").datepicker("option", "dateFormat", 'yy-mm-dd');*/
   $('#track_form').load('<%= new_account_track_path(@account) %>');
   $('.edit_track').click( function(){
     $('#track_form').load( $(this).attr("href") );

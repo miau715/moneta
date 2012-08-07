@@ -23,7 +23,7 @@
 <%= f.text_field :description, :class => 'inline' %>
 
 <% content_for :js do %>
-$(function() { 
+$(function() {
   $('input.type').click(function() {
     $('#track_category_id').hide();
     $('#track_category_id').html('');

@@ -7,7 +7,14 @@ end
 def show
   @accounts = Account.all
   @account = Account.find(params[:id])
-  @tracks = @account.tracks.order_by_date.paginate(:page => params[:page], :per_page => 20 )
+  
+  @start_date = params[:start_date]
+  @end_date = params[:end_date]
+  if @start_date
+    @tracks = @account.tracks.where("exchange_date > ?", @start_date).order_by_date.paginate(:page => params[:page], :per_page => 20 )
+  else
+    @tracks = @account.tracks.order_by_date.paginate(:page => params[:page], :per_page => 20 )
+  end
 end
 
 def new
