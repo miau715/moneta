@@ -3,6 +3,7 @@
 <head>
   <title>Moneta</title>
   <%= stylesheet_link_tag    "application" %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -27,7 +28,7 @@
 <div class="span3">
   <%= yield :side %>
 </div>
-<div class="span9">
+<div class="span9" id="main_block">
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
@@ -37,9 +38,7 @@
 <%= yield %>
 </div>
 </div>
-<script>
 <%= yield :js %>
-</script>
 </div>
 </body>
 </html>

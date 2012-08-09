@@ -23,6 +23,7 @@
 <%= f.text_field :description, :class => 'inline' %>
 
 <% content_for :js do %>
+<script>
 $(function() {
   $('input.type').click(function() {
     $('#track_category_id').hide();
@@ -36,4 +37,5 @@ $(function() {
     $('#track_category_id').show();
   });
 });
+</script>
 <% end %>

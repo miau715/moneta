@@ -16,6 +16,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem "devise"
 gem "will_paginate"
 gem 'jquery-rails'
 gem 'jquery_datepicker'

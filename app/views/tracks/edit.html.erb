@@ -2,4 +2,5 @@
 <%= form_for [@account, @track], :html => {:class => 'form-inline'} do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= f.submit "修改" %>
+  <%= link_to '取消', account_path(@account) %>
 <% end %>

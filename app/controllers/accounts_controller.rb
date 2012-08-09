@@ -7,14 +7,32 @@ end
 def show
   @accounts = Account.all
   @account = Account.find(params[:id])
+  @categories = Category.all
   
-  @start_date = params[:start_date]
-  @end_date = params[:end_date]
-  if @start_date
-    @tracks = @account.tracks.where("exchange_date > ?", @start_date).order_by_date.paginate(:page => params[:page], :per_page => 20 )
+  #篩選用  
+  @start_date = params[:start_date] || ''
+  @end_date = params[:end_date] || ''
+
+  if @start_date!=''
+    @tracks = @account.tracks.where("exchange_date >= ?", @start_date)
+    @status = 'start'
+    if @end_date!=''
+      @tracks = @account.tracks.where("exchange_date >= ? AND exchange_date <= ?", @start_date, @end_date)
+      @status = 'both'
+    end
+  elsif @end_date!=''
+    @tracks = @account.tracks.where("exchange_date <= ?", @end_date)
+    @status = 'end'
   else
-    @tracks = @account.tracks.order_by_date.paginate(:page => params[:page], :per_page => 20 )
+    @tracks = @account.tracks
+    @status = 'none'
   end
+
+  #統計圖表用
+  @category_statistics = @categories.map { |c| %{["#{c.name}",#{@tracks.where("category_id == ?", c.id).size}]}}.join(',')
+
+  #排序和分頁
+  @tracks = @tracks.order_by_date.paginate(:page => params[:page], :per_page => 10 )
 end
 
 def new
